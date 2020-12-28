@@ -12,7 +12,9 @@ server = http.createServer(function(req, res){
 io = socketIO(server);
 
 var run = function(socket){
-    console.log('connect');
+    socket.on('test', function(data){
+        console.log('only test ' + data);
+    });
 }
 
 io.sockets.on('connection', run);
